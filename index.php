@@ -1,23 +1,42 @@
 <?php
 
-    $kategori1= "Macera";
-    $kategori2= "Dram";
-    $kategori3= "Komedi";
-    $kategori4= "Korku";
+    $kategori = array("Macera", "Dram", "Komedi", "Korku");
 
-    $filmBaslik1 = "Paper Lives";
-    $filmOzet1 = "Kağıt toplayarak geçinen ve sağlığı giderek kötüleşen Mehmet terk edilmiş bir çocuk bulur. Birden hayatına giren küçük Ali, onu kendi çocukluğuyla yüzleştirecektir";
-    $filmResim1 = "1.jpeg";
-    $filmYorumSayisi1 = "Yorum: 55";
-    $filmBegeniSayisi1 = "Beğeni: 85";
-    $filmVizyon1 = "Vizyonda: Evet";
+    array_push($kategori, "Fantastik"); //diziye kategori ekledik
+    sort($kategori); //alfabetik sıraya göre dizdik
 
-    $filmBaslik2 = "The Walking Dead";
-    $filmOzet2 = "Zombi kıyametinin ardından hayatta kalanlar, birlikte verdikleri ölüm kalım mücadelesinde insanlığa karşı duydukları umuda tutunur.";
-    $filmResim2 = "2.jpeg";
-    $filmYorumSayisi2 = "Yorum: 45";
-    $filmBegeniSayisi2 = "Beğeni: 95";
-    $filmVizyon2 = "Vizyonda: Evet";
+    $filmler = array(
+        "1" => array(
+            "baslik" => "Paper Lives",
+            "aciklama" => "Kağıt toplayarak geçinen ve sağlığı giderek kötüleşen Mehmet terk edilmiş bir çocuk bulur. Birden hayatına giren küçük Ali, onu kendi çocukluğuyla yüzleştirecektir",
+            "resim" => "1.jpeg",
+            "yorumSayisi" => "Yorum: 55",
+            "begeniSayisi" => "Beğeni: 85",
+            "vizyon" => "Vizyonda: Evet"
+        ),
+
+        "2" => array(
+            "baslik" => "The Walking Dead",
+            "aciklama" => "Zombi kıyametinin ardından hayatta kalanlar, birlikte verdikleri ölüm kalım mücadelesinde insanlığa karşı duydukları umuda tutunur",
+            "resim" => "2.jpeg",
+            "yorumSayisi" => "Yorum: 45",
+            "begeniSayisi" => "Beğeni: 95",
+            "vizyon" => "Vizyonda: Evet"
+        )
+
+        );
+
+    $yeniFilm = array(
+        "baslik" => "Lucifer",
+            "aciklama" => "Zombi kıyametinin ardından hayatta kalanlar, birlikte verdikleri ölüm kalım mücadelesinde insanlığa karşı duydukları umuda tutunur",
+            "resim" => "3.jpeg",
+            "yorumSayisi" => "Yorum: 35",
+            "begeniSayisi" => "Beğeni: 45",
+            "vizyon" => "Vizyonda: Evet"
+    );
+
+    $filmler[0] = $yeniFilm;
+
 ?>
 
 
@@ -36,10 +55,11 @@
         <div class="row">
             <div class="col-3">
                 <ul class="list-group">
-                    <li class="list-group-item"><?php echo $kategori1?></li>
-                    <li class="list-group-item"><?php echo $kategori2?></li>
-                    <li class="list-group-item"><?php echo $kategori3?></li>
-                    <li class="list-group-item"><?php echo $kategori4?></li>
+                    <li class="list-group-item"><?php echo $kategori[0]?></li>
+                    <li class="list-group-item"><?php echo $kategori[1]?></li>
+                    <li class="list-group-item"><?php echo $kategori[2]?></li>
+                    <li class="list-group-item"><?php echo $kategori[3]?></li>
+                    <li class="list-group-item"><?php echo $kategori[4]?></li>
                 </ul>
             </div>
             <div class="col-9">
@@ -47,19 +67,19 @@
                     <div class="row">
                         <div class="col-3">
                             <?php echo
-                            "<img class=\"img-fluid\" src=\"img/{$filmResim1}\">"
+                            "<img class=\"img-fluid\" src=\"img/{$filmler["1"]["resim"]}\">"
                             ?>
                         </div>
                         <div class="col-9">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $filmBaslik1 ?> </h5>
-                                <p class="card-text"><?php echo $filmOzet1 ?></p>
+                                <h5 class="card-title"><?php echo $filmler["1"]["baslik"] ?> </h5>
+                                <p class="card-text"><?php echo $filmler["1"]["aciklama"] ?></p>
                             </div>
                             <span>
                                 <div class="badge bg-success">Yapım Tarihi: 03.12.2021</div>
-                                <div class="badge bg-success"><?php echo $filmYorumSayisi1 ?></div>
-                                <div class="badge bg-success"><?php echo $filmBegeniSayisi1 ?></div>
-                                <div class="badge bg-success"><?php echo $filmVizyon1 ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["1"]["yorumSayisi"] ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["1"]["begeniSayisi"] ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["1"]["vizyon"] ?></div>
                             </span>
                         </div>
                     </div>
@@ -68,19 +88,40 @@
                     <div class="row">
                         <div class="col-3">
                             <?php echo
-                            "<img class=\"img-fluid\" src=\"img/{$filmResim2}\">"
+                            "<img class=\"img-fluid\" src=\"img/{$filmler["2"]["resim"]}\">"
                             ?>
                         </div>
                         <div class="col-9">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $filmBaslik2 ?> </h5>
-                                <p class="card-text"><?php echo $filmOzet2 ?></p>
+                                <h5 class="card-title"><?php echo $filmler["2"]["baslik"] ?> </h5>
+                                <p class="card-text"><?php echo $filmler["2"]["aciklama"] ?></p>
                             </div>
                             <span>
                                 <div class="badge bg-success">Yapım Tarihi: 31.10.2010</div>
-                                <div class="badge bg-success"><?php echo $filmYorumSayisi2 ?></div>
-                                <div class="badge bg-success"><?php echo $filmBegeniSayisi2 ?></div>
-                                <div class="badge bg-success"><?php echo $filmVizyon2 ?>t</div>
+                                <div class="badge bg-success"><?php echo $filmler["2"]["yorumSayisi"] ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["2"]["begeniSayisi"] ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["2"]["vizyon"] ?>t</div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <?php echo
+                            "<img class=\"img-fluid\" src=\"img/{$filmler["0"]["resim"]}\">"
+                            ?>
+                        </div>
+                        <div class="col-9">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $filmler["0"]["baslik"] ?> </h5>
+                                <p class="card-text"><?php echo $filmler["0"]["aciklama"] ?></p>
+                            </div>
+                            <span>
+                                <div class="badge bg-success">Yapım Tarihi: 31.10.2010</div>
+                                <div class="badge bg-success"><?php echo $filmler["0"]["yorumSayisi"] ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["0"]["begeniSayisi"] ?></div>
+                                <div class="badge bg-success"><?php echo $filmler["0"]["vizyon"] ?>t</div>
                             </span>
                         </div>
                     </div>
