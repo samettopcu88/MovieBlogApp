@@ -1,14 +1,9 @@
 <?php
-
-require "libs/vars.php";
-
-require "libs/function.php";
-
+        require "libs/vars.php";
+        require "libs/function.php";
 ?>
-
-
-<?php include "views/_header.php" ?>
-<?php include "views/_navbar.php";?>    
+    <?php include "views/_header.php";?>
+    <?php include "views/_navbar.php";?>    
     
     <div class="container my-5">
     
@@ -18,7 +13,8 @@ require "libs/function.php";
             <?php include "views/_menu.php";?>
             </div>
             <div class="col-9">
-            <?php include "views/_blog-list.php";?>
+            
+            
             </div>       
         </div>    
     </div>
