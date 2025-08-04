@@ -1,22 +1,31 @@
 <?php
-require "libs/vars.php";
-require "libs/function.php";
+        require "libs/vars.php";
+        require "libs/function.php";
+
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+            $baslik = $_POST["baslik"];
+            $aciklama = $_POST["aciklama"];
+            $resimurl = $_POST["resimurl"];
+
+            filmEkle($baslik,$aciklama,$resimurl);
+            header('Location: index.php');
+        }
 ?>
-<?php include "views/_header.php"; ?>
-<?php include "views/_navbar.php"; ?>
+    <?php include "views/_header.php";?>
+    <?php include "views/_navbar.php";?>    
+    
+    <div class="container my-5">
+    
+        <div class="row">
 
-<div class="container my-5">
-
-    <div class="row">
-
-        <div class="col-3">
-            <?php include "views/_menu.php"; ?>
-        </div>
-        <div class="col-9">
-
+            <div class="col-3">
+            <?php include "views/_menu.php";?>
+            </div>
+            <div class="col-9">
+            
             <div class="card">
                 <div class="card-body">
-                    <form action="index.php" method="POST">
+                    <form action="create.php" method="POST">
                         <div class="mb-3">
                             <label for="baslik" class="form-label">Başlık</label>
                             <input type="text" class="form-control" name="baslik" id="baslik">
@@ -34,12 +43,11 @@ require "libs/function.php";
                     </form>
                 </div>
             </div>
-
-        </div>
+            
+            </div>       
+        </div>    
     </div>
-</div>
 
-<?php include "views/_footer.php" ?>
+    <?php include "views/_footer.php"?>
 </body>
-
 </html>
